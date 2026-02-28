@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة سيبر الجوف</title>
+    
+    <!-- الخطوط والأيقونات -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ملف التصميم الخارجي -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="preload no-scroll"> 
+
+    <div class="news-ticker no-tap-highlight">
+        <div class="ticker-text">
+            <span class="ticker-badge">تحديث هام</span>
+            <span>تم إدراج الفصل الثالث (Chapter 3) ضمن مقررات اختبار مادة "رياضيات الحاسب" .. يرجى الاطلاع على الروابط في جدول الاختبارات.</span>
+        </div>
+    </div>
+
+    <div id="cyber-splash" class="cyber-splash">
+        <div class="shield-wrapper">
+            <div class="shield-ripple"></div>
+            <div class="shield-ripple"></div>
+            <div class="shield-ripple"></div>
+            <svg id="splash-shield" class="splash-shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                <path d="M256 0c-2.4 0-4.7 .3-7 .9C149.7 27 49 53 49 53c-15.3 4.8-25 19.3-25 35V224c0 131.4 87.8 249.7 213 283.5c6.2 1.7 12.8 1.7 19 0C381.2 473.7 469 355.4 469 224V88c0-15.7-9.7-30.2-25-35c0 0-100.7-26-200-52.1c-2.3-.6-4.6-.9-7-.9zM256 464c-2.2-.6-4.4-1.2-6.6-1.9C137.4 429.5 64 330.4 64 224V98.1C132 77.2 216.7 53.6 256 42.4V464z"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        
+        <div class="bento-container" id="main-content">
+            
+            <div class="bento-box welcome-bento">
+                <div class="welcome-info">
+                    <div class="header-icon" id="header-shield-container">
+                        <i class="fa-solid fa-fingerprint" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="welcome-text">
+                        <span class="style-badge">2026</span>
+                        <h1>دبلوم الأمن السيبراني</h1>
+                        <p>جامعة الجوف - بوابة الطلاب</p>
+                    </div>
+                </div>
+                <div id="current-date" class="date-display">جاري التحميل...</div>
+            </div>
+
+            <div class="bento-box" id="tasks-board">
+                <div class="bento-title">
+                    <div class="title-main-part">
+                        <i class="fa-solid fa-thumbtack"></i> الإعلانات والمهام
+                    </div>
+                </div>
+                <div class="tasks-container" id="tasks-container">
+                    <!-- سيتم حقن المهام هنا عبر الجافاسكربت -->
+                </div>
+            </div>
+
+            <div class="sections-slider no-tap-highlight">
+                <div class="section-card active" data-target="classes-view">
+                    <div class="sc-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                    <div class="sc-text">
+                        <h4>الجدول الدراسي</h4>
+                        <span>المحاضرات الأسبوعية</span>
+                    </div>
+                </div>
+                
+                <div class="section-card" data-target="exams-view">
+                    <div class="sc-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <div class="sc-text">
+                        <h4>الاختبارات الفترية</h4>
+                        <span>Midterm 1 (15%)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="classes-view" class="tab-content-section active">
+                <div class="bento-box">
+                    <div class="bento-title">
+                        <div class="title-main-part">
+                            <i class="fa-regular fa-clock"></i> توقيت المحاضرات
+                        </div>
+                        <span class="ramadan-note">( توقيت شهر رمضان )</span>
+                    </div>
+                    <div id="accordion-container" class="accordion-container"></div>
+                </div>
+            </div>
+
+            <div id="exams-view" class="tab-content-section">
+                <div class="bento-box">
+                    <div class="bento-title">
+                        <div class="title-main-part">
+                            <i class="fa-solid fa-file-signature"></i> جدول الاختبارات الفترية
+                        </div>
+                        <span class="ramadan-note">الوزن: 15%</span>
+                    </div>
+                    
+                    <div class="table-scroll-container">
+                        <div class="scroll-hint"><i class="fa-solid fa-arrow-right-arrow-left"></i> اسحب للانتقال</div>
+                        <div class="table-responsive" id="exam-table-wrapper">
+                            <table class="exam-table">
+                                <thead>
+                                    <tr>
+                                        <th>المادة</th>
+                                        <th>اليوم</th>
+                                        <th>التاريخ</th>
+                                        <th>الوقت</th>
+                                        <th>المقرر (Links)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="subject-name"><i class="fa-solid fa-shield-halved"></i> الأمن السيبراني</div>
+                                        </td>
+                                        <td>الاثنين</td>
+                                        <td>
+                                            <div class="date-main">١٣ رمضان</div>
+                                            <div class="date-sub"><i class="fa-regular fa-calendar"></i> ٢ مارس</div>
+                                        </td>
+                                        <td><span class="time-badge"><i class="fa-regular fa-clock"></i> سيحدد لاحقاً</span></td>
+                                        <td>
+                                            <div class="links-flex">
+                                                <a href="https://drive.google.com/file/d/1Als7w3U1kW_TDdfeA1WP1K1X2ulKD1sB/view?usp=drivesdk" target="_blank" class="table-link no-tap-highlight"><i class="fa-solid fa-link"></i> Ch 1</a>
+                                                <a href="https://drive.google.com/file/d/1WDTHiSYRAxn4WuCZm127M3CRTLMFfJ11/view?usp=drivesdk" target="_blank" class="table-link no-tap-highlight"><i class="fa-solid fa-link"></i> Ch 2</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="subject-name"><i class="fa-solid fa-calculator"></i> رياضيات الحاسب</div>
+                                        </td>
+                                        <td>الأربعاء</td>
+                                        <td>
+                                            <div class="date-main">١٥ رمضان</div>
+                                            <div class="date-sub"><i class="fa-regular fa-calendar"></i> ٤ مارس</div>
+                                        </td>
+                                        <td><span class="time-badge"><i class="fa-regular fa-clock"></i> سيحدد لاحقاً</span></td>
+                                        <td>
+                                            <div class="links-flex">
+                                                <a href="https://drive.google.com/file/d/10Q-z3Xkh_XsYhuOnVzGzmCaEofWAF5vc/view?usp=drivesdk" target="_blank" class="table-link no-tap-highlight"><i class="fa-solid fa-link"></i> Ch 1</a>
+                                                <a href="https://drive.google.com/file/d/1Bw9rB8jFstLw8NuNAZtiQI9o7QZ9I9HG/view?usp=drivesdk" target="_blank" class="table-link no-tap-highlight"><i class="fa-solid fa-link"></i> Ch 2</a>
+                                                <a href="https://drive.google.com/file/d/1qXIPco__hYz8tuRtJt6W8VdNfkVMAUrw/view?usp=drivesdk" target="_blank" class="table-link no-tap-highlight"><i class="fa-solid fa-link"></i> Ch 3</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-fade-edge" id="table-fade"></div>
+                    </div>
+
+                    <div class="exam-footer-note">
+                        <i class="fa-solid fa-globe"></i> الاختبارات ستقام <strong>عن بُعد</strong> | يرجى متابعة التحديثات لمعرفة الوقت.
+                    </div>
+                </div>
+            </div>
+
+            <div class="modern-btn-grid">
+                <a href="https://lms.ju.edu.sa/" class="modern-btn" onclick="handleLinkClick(event, this)">
+                    <div class="btn-icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="btn-title">بلاك بورد</span>
+                </a>
+                <a href="https://edug.ju.edu.sa/ju/init" class="modern-btn" onclick="handleLinkClick(event, this)">
+                    <div class="btn-icon-box"><i class="fa-solid fa-laptop-file"></i></div>
+                    <span class="btn-title">البوابة الإلكترونية</span>
+                </a>
+            </div>
+
+            <!-- صندوق المظهر الحديث (الكبسولة) -->
+            <div class="bento-box modern-theme-card">
+                <div class="scenery-toggle no-tap-highlight" id="theme-toggle" title="انقر لتغيير المظهر">
+                    <div class="theme-icon-container">
+                        <i class="fa-solid fa-moon moon-icon"></i>
+                        <i class="fa-solid fa-sun sun-icon"></i>
+                    </div>
+                    <div class="star star-1"></div>
+                    <div class="star star-2"></div>
+                    <div class="cloud-modern"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="page-footer" id="page-footer">
+            <div class="version-badge">V.2.0 Modern</div>
+            <div class="contact-pill no-tap-highlight" id="contact-pill">
+                <button class="envelope-btn no-tap-highlight" id="envelope-btn" title="تواصل معنا">
+                    <i class="fa-solid fa-envelope"></i>
+                </button>
+                <div class="email-slider">
+                    <a href="mailto:ali.dev.3662@gmail.com">ali.dev.3662@gmail.com</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ملف الجافاسكريبت الخارجي -->
+    <script src="assets/js/main.js"></script>
+</body>
+  </html>
